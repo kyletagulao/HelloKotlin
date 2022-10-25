@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_calcu_main.*
+import kotlin.math.pow
 
 class CalcuMain : AppCompatActivity() {
 
@@ -13,7 +14,7 @@ class CalcuMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        supportActionBar?.hide();
+        supportActionBar?.hide()
 
         setContentView(R.layout.activity_calcu_main)
 
@@ -42,7 +43,7 @@ class CalcuMain : AppCompatActivity() {
         var i = 0
 
         while (userNumber.toInt() != 0) {
-            decimalNumber += (userNumber % 10 * Math.pow(2.0, i.toDouble())).toInt()
+            decimalNumber += (userNumber % 10 * 2.0.pow(i.toDouble())).toInt()
             ++i
             userNumber /= 10
         }
@@ -68,7 +69,7 @@ class CalcuMain : AppCompatActivity() {
         while (userNumber.toInt() != 0) {
             remainder = userNumber % 10
             userNumber /= 10
-            decimalNumber += (remainder * Math.pow(2.0, i.toDouble())).toInt()
+            decimalNumber += (remainder * 2.0.pow(i.toDouble())).toInt()
             ++i
         }
 
